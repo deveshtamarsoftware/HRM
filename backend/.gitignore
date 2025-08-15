@@ -1,0 +1,45 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Environment variables
+.env
+.env.*
+
+# SQLite and other DBs
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# Uploaded media / temp files
+uploads/
+tmp/
+temp/
+
+# Migrations (if using Alembic)
+alembic/versions/
+
+# Python wheels/dist
+*.egg-info/
+dist/
+build/
+
+# OS-specific
+.DS_Store
+Thumbs.db
