@@ -1,69 +1,239 @@
-# HRM DDDH
+# Full Stack FastAPI Template
 
-# What is an SSH Key?
-An SSH (Secure Shell) key is a secure method of authenticating and connecting to a remote machine, such as a Git server, without having to use a password. It consists of two parts: a public key and a private key. The private key is kept secret on your local machine, while the public key is uploaded to the remote server. When you attempt to connect, the server uses your public key to verify that you are the owner of the corresponding private key, allowing for a secure, passwordless connection.
+<a href="https://github.com/fastapi/full-stack-fastapi-template/actions?query=workflow%3ATest" target="_blank"><img src="https://github.com/fastapi/full-stack-fastapi-template/workflows/Test/badge.svg" alt="Test"></a>
+<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/fastapi/full-stack-fastapi-template" target="_blank"><img src="https://coverage-badge.samuelcolvin.workers.dev/fastapi/full-stack-fastapi-template.svg" alt="Coverage"></a>
 
+## Technology Stack and Features
 
-# Why Use SSH Keys?
-Security: SSH keys are much more secure than passwords, as they are nearly impossible to guess or brute force. They also protect you from "man-in-the-middle" attacks.
+- ⚡ [**FastAPI**](https://fastapi.tiangolo.com) for the Python backend API.
+    - 🧰 [SQLModel](https://sqlmodel.tiangolo.com) for the Python SQL database interactions (ORM).
+    - 🔍 [Pydantic](https://docs.pydantic.dev), used by FastAPI, for the data validation and settings management.
+    - 💾 [PostgreSQL](https://www.postgresql.org) as the SQL database.
+- 🚀 [React](https://react.dev) for the frontend.
+    - 💃 Using TypeScript, hooks, Vite, and other parts of a modern frontend stack.
+    - 🎨 [Chakra UI](https://chakra-ui.com) for the frontend components.
+    - 🤖 An automatically generated frontend client.
+    - 🧪 [Playwright](https://playwright.dev) for End-to-End testing.
+    - 🦇 Dark mode support.
+- 🐋 [Docker Compose](https://www.docker.com) for development and production.
+- 🔒 Secure password hashing by default.
+- 🔑 JWT (JSON Web Token) authentication.
+- 📫 Email based password recovery.
+- ✅ Tests with [Pytest](https://pytest.org).
+- 📞 [Traefik](https://traefik.io) as a reverse proxy / load balancer.
+- 🚢 Deployment instructions using Docker Compose, including how to set up a frontend Traefik proxy to handle automatic HTTPS certificates.
+- 🏭 CI (continuous integration) and CD (continuous deployment) based on GitHub Actions.
 
-Convenience: Once set up, you no longer need to enter your username and password every time you interact with the remote repository. This streamlines your workflow and saves time.
+### Dashboard Login
 
-Automation: SSH keys enable scripts and automated tools to securely connect to remote servers without human intervention.
+[![API docs](img/login.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
-Access Control: You can easily revoke access by removing a user's public key from the server, which is more straightforward than changing a shared password.
+### Dashboard - Admin
 
-# How to Add an SSH Key to GitHub
-### Step 1: Check for Existing SSH Keys
-Open your terminal or Git Bash and run the following command to see if you already have an SSH key:
+[![API docs](img/dashboard.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
-Bash
-ls -al ~/.ssh
-If you see files named id_rsa.pub or id_ed25519.pub, you have an existing key. You can skip to Step 3. If not, proceed to Step 2.
+### Dashboard - Create User
 
-### Step 2: Generate a New SSH Key
-To generate a new SSH key, use the following command, replacing your_email@example.com with your GitHub email address:
-Bash
-ssh-keygen -t ed25519 -C "your_email@example.com"
-ssh-keygen: The command-line tool for generating keys.
+[![API docs](img/dashboard-create.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
--t ed25519: Specifies the type of key to create. ed25519 is the recommended, more secure algorithm.
+### Dashboard - Items
 
--C "your_email@example.com": Adds a comment to the key to help you identify it.
+[![API docs](img/dashboard-items.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
-When prompted, press Enter to accept the default file location and an optional passphrase. A passphrase adds an extra layer of security, but you'll have to enter it each time you use the key.
+### Dashboard - User Settings
 
-### Step 3: Add the SSH Key to the SSH Agent
-The SSH agent is a program that holds your keys in memory, so you don't have to enter your passphrase every time. Start the SSH agent and add your new key to it with these commands:
+[![API docs](img/dashboard-user-settings.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
-Bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-### Step 4: Copy the Public Key
-You need to copy your public key so you can add it to your GitHub account.
+### Dashboard - Dark Mode
 
-On macOS:
-Bash
-pbcopy < ~/.ssh/id_ed25519.pub
+[![API docs](img/dashboard-dark.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
-On Windows (Git Bash):
-Bash
-cat ~/.ssh/id_ed25519.pub
-Copy the output of the cat command manually.
+### Interactive API Documentation
 
-### Step 5: Add the Key to Your GitHub Account
-Navigate to your GitHub account settings.
-Click on Settings in the dropdown menu.
-In the left sidebar, click on SSH and GPG keys.
-Click the New SSH key button.
-Give your key a descriptive title (e.g., "My Laptop" or "Work PC").
-Paste the public key you copied in Step 4 into the "Key" field.
-Click Add SSH key.
-You will be prompted to enter your GitHub password to confirm the change.
+[![API docs](img/docs.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
-### Step 6: Test Your Connection
-To verify that everything is set up correctly, open your terminal and run the following command:
+## How To Use It
 
-Bash
-ssh -T git@github.com
-You should see a message similar to "Hi your-username! You've successfully authenticated...". If you get a "permission denied" error, double-check all the previous steps.
+You can **just fork or clone** this repository and use it as is.
+
+✨ It just works. ✨
+
+### How to Use a Private Repository
+
+If you want to have a private repository, GitHub won't allow you to simply fork it as it doesn't allow changing the visibility of forks.
+
+But you can do the following:
+
+- Create a new GitHub repo, for example `my-full-stack`.
+- Clone this repository manually, set the name with the name of the project you want to use, for example `my-full-stack`:
+
+```bash
+git clone git@github.com:fastapi/full-stack-fastapi-template.git my-full-stack
+```
+
+- Enter into the new directory:
+
+```bash
+cd my-full-stack
+```
+
+- Set the new origin to your new repository, copy it from the GitHub interface, for example:
+
+```bash
+git remote set-url origin git@github.com:octocat/my-full-stack.git
+```
+
+- Add this repo as another "remote" to allow you to get updates later:
+
+```bash
+git remote add upstream git@github.com:fastapi/full-stack-fastapi-template.git
+```
+
+- Push the code to your new repository:
+
+```bash
+git push -u origin master
+```
+
+### Update From the Original Template
+
+After cloning the repository, and after doing changes, you might want to get the latest changes from this original template.
+
+- Make sure you added the original repository as a remote, you can check it with:
+
+```bash
+git remote -v
+
+origin    git@github.com:octocat/my-full-stack.git (fetch)
+origin    git@github.com:octocat/my-full-stack.git (push)
+upstream    git@github.com:fastapi/full-stack-fastapi-template.git (fetch)
+upstream    git@github.com:fastapi/full-stack-fastapi-template.git (push)
+```
+
+- Pull the latest changes without merging:
+
+```bash
+git pull --no-commit upstream master
+```
+
+This will download the latest changes from this template without committing them, that way you can check everything is right before committing.
+
+- If there are conflicts, solve them in your editor.
+
+- Once you are done, commit the changes:
+
+```bash
+git merge --continue
+```
+
+### Configure
+
+You can then update configs in the `.env` files to customize your configurations.
+
+Before deploying it, make sure you change at least the values for:
+
+- `SECRET_KEY`
+- `FIRST_SUPERUSER_PASSWORD`
+- `POSTGRES_PASSWORD`
+
+You can (and should) pass these as environment variables from secrets.
+
+Read the [deployment.md](./deployment.md) docs for more details.
+
+### Generate Secret Keys
+
+Some environment variables in the `.env` file have a default value of `changethis`.
+
+You have to change them with a secret key, to generate secret keys you can run the following command:
+
+```bash
+python -c "import secrets; print(secrets.token_urlsafe(32))"
+```
+
+Copy the content and use that as password / secret key. And run that again to generate another secure key.
+
+## How To Use It - Alternative With Copier
+
+This repository also supports generating a new project using [Copier](https://copier.readthedocs.io).
+
+It will copy all the files, ask you configuration questions, and update the `.env` files with your answers.
+
+### Install Copier
+
+You can install Copier with:
+
+```bash
+pip install copier
+```
+
+Or better, if you have [`pipx`](https://pipx.pypa.io/), you can run it with:
+
+```bash
+pipx install copier
+```
+
+**Note**: If you have `pipx`, installing copier is optional, you could run it directly.
+
+### Generate a Project With Copier
+
+Decide a name for your new project's directory, you will use it below. For example, `my-awesome-project`.
+
+Go to the directory that will be the parent of your project, and run the command with your project's name:
+
+```bash
+copier copy https://github.com/fastapi/full-stack-fastapi-template my-awesome-project --trust
+```
+
+If you have `pipx` and you didn't install `copier`, you can run it directly:
+
+```bash
+pipx run copier copy https://github.com/fastapi/full-stack-fastapi-template my-awesome-project --trust
+```
+
+**Note** the `--trust` option is necessary to be able to execute a [post-creation script](https://github.com/fastapi/full-stack-fastapi-template/blob/master/.copier/update_dotenv.py) that updates your `.env` files.
+
+### Input Variables
+
+Copier will ask you for some data, you might want to have at hand before generating the project.
+
+But don't worry, you can just update any of that in the `.env` files afterwards.
+
+The input variables, with their default values (some auto generated) are:
+
+- `project_name`: (default: `"FastAPI Project"`) The name of the project, shown to API users (in .env).
+- `stack_name`: (default: `"fastapi-project"`) The name of the stack used for Docker Compose labels and project name (no spaces, no periods) (in .env).
+- `secret_key`: (default: `"changethis"`) The secret key for the project, used for security, stored in .env, you can generate one with the method above.
+- `first_superuser`: (default: `"admin@example.com"`) The email of the first superuser (in .env).
+- `first_superuser_password`: (default: `"changethis"`) The password of the first superuser (in .env).
+- `smtp_host`: (default: "") The SMTP server host to send emails, you can set it later in .env.
+- `smtp_user`: (default: "") The SMTP server user to send emails, you can set it later in .env.
+- `smtp_password`: (default: "") The SMTP server password to send emails, you can set it later in .env.
+- `emails_from_email`: (default: `"info@example.com"`) The email account to send emails from, you can set it later in .env.
+- `postgres_password`: (default: `"changethis"`) The password for the PostgreSQL database, stored in .env, you can generate one with the method above.
+- `sentry_dsn`: (default: "") The DSN for Sentry, if you are using it, you can set it later in .env.
+
+## Backend Development
+
+Backend docs: [backend/README.md](./backend/README.md).
+
+## Frontend Development
+
+Frontend docs: [frontend/README.md](./frontend/README.md).
+
+## Deployment
+
+Deployment docs: [deployment.md](./deployment.md).
+
+## Development
+
+General development docs: [development.md](./development.md).
+
+This includes using Docker Compose, custom local domains, `.env` configurations, etc.
+
+## Release Notes
+
+Check the file [release-notes.md](./release-notes.md).
+
+## License
+
+The Full Stack FastAPI Template is licensed under the terms of the MIT license.
