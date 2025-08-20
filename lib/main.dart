@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'Calender_Screen.dart';
-import 'Employeedetails_Screen.dart';
-import 'LeaveStatus_Screen.dart';
+import 'Employee_Section/Calender_Screen.dart';
+import 'Employee_Section/Employeedetails_Screen.dart';
+import 'Employee_Section/LeaveStatus_Screen.dart';
 import 'Login_Screen.dart';
-import 'Requestleave_Screen.dart';
+import 'Employee_Section/Requestleave_Screen.dart';
 
 final ValueNotifier<ThemeMode> themeModeNotifier = ValueNotifier(ThemeMode.light);
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'Admin/RequestLeave_Screen.dart';
 import 'Attendance_Screen.dart';
 import 'Calender_Screen.dart';
 import 'Employeedetails_Screen.dart';
@@ -296,7 +295,7 @@ class _EmployeeDashboardState extends State<EmployeeDashboard> {
                   _buildShortcut(
                       "Projects",
                       Icons.folder,
-                      LeaveRequestsPage(),
+                      LeaveHistoryScreen(),
                       Colors.green),
                 ],
               ),

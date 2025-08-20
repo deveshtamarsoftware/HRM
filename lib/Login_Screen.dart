@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'Forgotpassword_Screen.dart';
-import 'Home_Screen.dart';
-import 'Requestleave_Screen.dart';
+import 'Admin_Sections/admin_dashboard.dart';
+import 'Common_Section/Forgotpassword_Screen.dart';
+import 'Employee_Section/Home_Screen.dart';
+import 'Employee_Section/Requestleave_Screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +18,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
   bool _obscurePassword = true;
   bool _isLoading = false;
-
   Future<void> loginUser() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
@@ -32,7 +32,18 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _isLoading = true);
 
     try {
-      // MockAPI GET request
+      // ✅ Manual check for Admin
+      if (email == "admin@gmail.com" && password == "123456") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>  AdminDashboard(), // 👈 yaha apna Admin screen class lagao
+          ),
+        );
+        return; // stop execution here
+      }
+
+      // 🔹 Otherwise check via MockAPI
       final response = await http.get(
         Uri.parse("https://689add4ee727e9657f62d2fa.mockapi.io/user"),
       );
@@ -48,7 +59,9 @@ class _LoginScreenState extends State<LoginScreen> {
           print("Login Success! User: ${user['email']}");
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => EmployeeDashboard(employeeData: {},)),
+            MaterialPageRoute(
+              builder: (context) => EmployeeDashboard(employeeData: user),
+            ),
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -60,8 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
           SnackBar(content: Text("Server error: ${response.statusCode}")),
         );
       }
-    }
-    catch (e) {
+    } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Error: $e")),
       );
