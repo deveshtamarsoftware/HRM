@@ -1,69 +1,73 @@
-# React + TypeScript + Vite
+# React + Vite Project
+This project was created with Vite and React. It is a modern and fast setup for building web applications.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
+- Introduction
+- Prerequisites
+- Installation
+- Usage
+- Build
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Introduction
+This is a single-page application built using React for the user interface and Vite as a lightning-fast build tool.
 
-## Expanding the ESLint configuration
+Prerequisites
+Before you begin, ensure you have the following installed on your machine:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+Node.js (LTS version recommended)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+npm or Yarn
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Installation
+Clone the repository:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+git clone [your-repository-url]
+
+Navigate into the project directory:
+
+cd [your-project-directory]
+
+Install dependencies:
+
+npm install
+# or
+yarn
+
+Usage
+To run the development server, use the following command:
+
+npm run dev
+# or
+yarn dev
+
+This will start the local server, and you can view the application in your browser at http://localhost:5173.
+
+Build
+To create a production-ready build of the application, run:
+
+npm run build
+# or
+yarn build
+
+This will generate a dist folder containing all the optimized files for deployment.
+
+Project Structure
+├── public/
+│   ├── vite.svg
+├── src/
+│   ├── assets/
+│   │   ├── react.svg
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── index.html
+├── package.json
+├── README.md
+├── vite.config.js
+└── yarn.lock (if using yarn)
 ```
