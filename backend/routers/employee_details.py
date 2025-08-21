@@ -66,10 +66,10 @@ def get_employee(employee_id: int):
                   e.*,
                   r.username AS reg_username,
                   r.email    AS reg_email
-                FROM myapp.employee_details e
-                LEFT JOIN myapp.employee_registration r
-                  ON r.registration_id = e.registration_id
-                WHERE e.employee_id = %s
+                    FROM myapp.employee_details e
+                    LEFT JOIN myapp.employee_registration r
+                    ON r.registration_id = e.registration_id
+                    WHERE e.employee_id = %s
                 """,
                 (employee_id,),
             )
