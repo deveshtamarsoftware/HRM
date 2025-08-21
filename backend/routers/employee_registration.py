@@ -13,7 +13,7 @@ class RegistrationCreate(BaseModel):
     username: str
     password: str
     email: EmailStr
-    phone_number: Optional[str] = None
+    phone_number: str
     first_name: str
     last_name: str
     dob: date
@@ -24,13 +24,13 @@ class RegistrationOut(BaseModel):
     registration_id: int
     username: str
     email: EmailStr
-    phone_number: Optional[str]
+    phone_number: str
     first_name: str
     last_name: str
     dob: date
-    gender: str
-    marital_status: str
-    reg_status: str
+    gender: Optional[str]
+    marital_status: Optional[str]
+    reg_status: Optional[str]
     approved_by_hr: Optional[int]
     created_at: str
     updated_at: str
