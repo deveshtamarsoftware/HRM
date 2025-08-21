@@ -207,7 +207,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
                   _buildDatePicker('Date of Birth', _dateOfBirth,
                           (val) => setState(() => _dateOfBirth = val)),
                   _buildDropdown(_selectedGender, 'Gender', Icons.person,
-                      ['Male', 'Female'],
+                      ['Male', 'Female','Other'],
                           (val) => setState(() => _selectedGender = val)),
                   _buildDropdown(
                       _selectedMaritalStatus,

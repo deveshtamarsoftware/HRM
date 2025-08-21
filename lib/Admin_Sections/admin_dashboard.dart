@@ -55,7 +55,7 @@ class DashboardScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                     CircleAvatar(
                         radius: 30,
                         backgroundImage: adminImage.startsWith('assets')
                             ? AssetImage(adminImage)
@@ -121,6 +121,7 @@ class DashboardScreen extends StatelessWidget {
                                 builder: (context) =>
                                     AdminAttendanceScreen()),
                           );
+
                         } else if (item["label"] == "Leave Management") {
                           Navigator.push(
                             context,
