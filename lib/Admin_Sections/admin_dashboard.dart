@@ -22,6 +22,7 @@ class AdminDashboard extends StatelessWidget {
       ),
     );
   }
+
 }
 
 class DashboardScreen extends StatelessWidget {
@@ -30,8 +31,8 @@ class DashboardScreen extends StatelessWidget {
     {"icon": Icons.event_note, "label": "Attendance Monitoring"},
     {"icon": Icons.insert_chart, "label": "Leave Management"},
     {"icon": Icons.access_time, "label": "TimeSheets"},
-    {"icon": Icons.calendar_today, "label": ""},
-    {"icon": Icons.folder, "label": ""},
+    {"icon": Icons.calendar_today, "label": "Accounts"},
+    {"icon": Icons.folder, "label": "Sections"},
   ];
 
   @override
@@ -97,6 +98,7 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height:19),
               const SizedBox(height: 70),
 
               // Grid
@@ -114,7 +116,7 @@ class DashboardScreen extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => EmployeeListPage()),
                           );
-                        } else if (item["label"] == "Attendance Monitoring") {
+                        } else if (item["label"] == "Attendance Monitor") {
                           Navigator.push(
                             context,
                             MaterialPageRoute(

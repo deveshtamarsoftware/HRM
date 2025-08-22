@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
+import 'admin_Registation_Screen.dart';
+
 class EmployeeForm extends StatefulWidget {
   @override
   _EmployeeFormState createState() => _EmployeeFormState();
@@ -18,7 +20,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
   final _phoneController = TextEditingController();
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
-
+// drog
   // Dropdown + Date
   String _selectedGender = 'Male';
   String _selectedMaritalStatus = 'Single';
@@ -37,6 +39,7 @@ class _EmployeeFormState extends State<EmployeeForm> {
     }
   }
 
+
   void _submitForm() {
     if (!_formKey.currentState!.validate()) return;
 
@@ -45,10 +48,24 @@ class _EmployeeFormState extends State<EmployeeForm> {
     Future.delayed(const Duration(seconds: 2), () {
       setState(() => _isLoading = false);
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text("✅ Employee registered successfully!"),
-            backgroundColor: Colors.green),
+      // Employee data create
+      final employeeData = {
+        'firstName': _firstNameController.text,
+        'lastName': _lastNameController.text,
+        'email': _emailController.text,
+        'phone': _phoneController.text,
+        'dob': _dateFormatter.format(_dateOfBirth),
+        'gender': _selectedGender,
+        'maritalStatus': _selectedMaritalStatus,
+        'status': "Pending", // Default Pending
+      };
+
+      // Navigate to Status Page
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => EmployeeStatusScreen(employeeData: employeeData),
+        ),
       );
 
       _resetForm();
