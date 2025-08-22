@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../RolePermission_Screen.dart';
 import 'AdminAttendanceScreen.dart';
 import 'Adminweeklywatchsheet.dart';
 import 'EmployeeListPage.dart';
@@ -114,7 +115,7 @@ class DashboardScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => EmployeeListPage()),
+                                builder: (context) =>RolePermissionScreen()),
                           );
                         } else if (item["label"] == "Attendance Monitor") {
                           Navigator.push(
