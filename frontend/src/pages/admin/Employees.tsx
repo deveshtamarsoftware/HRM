@@ -4,6 +4,22 @@ import { SVGProps } from 'react';
 
 // Main application component, including MyLeaves, MyAttendance, and Employees
 const App = () => {
+  const [employee, setEmployee] = useState([]);
+  useEffect(() => {
+     // Get value from .env
+    const apiUrl = import.meta.env.VITE_API_BACKEND_URL;
+     console.log('VITE_API_BACKEND_URL', apiUrl)
+
+    // Example fetch request
+    fetch(`${apiUrl}/api`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('data', data)
+        setEmployee(data)
+  })
+  .catch((err) => console.error("Error fetching users:", err));
+  }, []);
+  
   return (
     <div className="bg-gray-100 min-h-screen font-sans antialiased">
       <main className="p-6 md:ml-64 mt-20 max-w-7xl mx-auto space-y-8">
