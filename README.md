@@ -52,7 +52,7 @@
 
 [![API docs](img/docs.png)](https://github.com/fastapi/full-stack-fastapi-template)
 
-## How To Use It
+## How To Use It test
 
 You can **just fork or clone** this repository and use it as is.
 
